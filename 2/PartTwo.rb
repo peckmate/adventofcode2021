@@ -7,7 +7,7 @@ require 'csv'
 class PartTwo 
     attr_accessor :input, :aim, :depth, :horizontal, :result 
 
-	def initialize( name )
+    def initialize( name )
         @input = CSV.read( name ).flatten
         @horizontal = 0 
         @depth = 0 
