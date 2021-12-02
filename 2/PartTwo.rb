@@ -19,7 +19,6 @@ class PartTwo
             direction, count = coord.split(" ")
             count = count.to_i 
 
-
             case direction 
             when 'forward' 
                 @horizontal += count 
