@@ -1,22 +1,23 @@
-# app = OneA.new('path_to_input_file')
-# app.perform 
+require 'csv' 
 
 class OneA
-	@INPUT = []
+	attr_accessor :input 
+	attr_accessor :solution 
+
 	def initialize(name)
 		x = CSV.read(name).flatten!
-		@INPUT = x.map(&:to_i)
+		@input = x.map(&:to_i)
 	end 
 
 	def perform
 
 
 		counter = 0 
-		@INPUT.each_cons(2) do |a,b|
+		@input.each_cons(2) do |a,b|
 			if b > a 
 				counter += 1 
 			end 
 		end 
-		return counter
+		@solution = counter 
 	end
 end 

@@ -3,6 +3,7 @@ require 'csv'
 class OneB 
 	attr_accessor :input 
 	attr_accessor :window 
+	attr_accessor :solution 
 
 	def initialize(name)
 		@input = CSV.read(name).flatten.map(&:to_i)
@@ -13,14 +14,12 @@ class OneB
 	end 
 
 	def perform
-
-
 		counter = 0 
 		@window.each_cons(2) do |a,b|
 			if b > a 
 				counter += 1 
 			end 
 		end 
-		return counter
+		@solution = counter 
 	end
 end 
