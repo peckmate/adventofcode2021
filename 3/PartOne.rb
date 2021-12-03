@@ -1,10 +1,9 @@
 require 'csv' 
 
-
 class PartOne 
     attr_accessor :input, :epsilon, :gamma, :solution 
 
-    def initialize(path)
+    def initialize( path )
         @input = CSV.read( path ).flatten
         @epsilon = ""
         @gamma = ""
@@ -12,12 +11,12 @@ class PartOne
     end
 
     def perform 
-        (0..11).to_a.each do |idx| 
+        ( 0..11 ).to_a.each do |idx| 
             vertical_slice = input.map do |input| 
-                input.split("")[idx]
+                input.split( "" )[idx]
             end
             
-            slice_hash = vertical_slice.each_with_object(Hash.new(0)) do |num, hash| 
+            slice_hash = vertical_slice.each_with_object( Hash.new( 0 ) ) do |num, hash| 
                 hash[num] += 1 
             end
         
@@ -29,7 +28,7 @@ class PartOne
         
         end
 
-        @solution = @gamma.to_i(2) * @epsilon.to_i(2)
+        @solution = @gamma.to_i( 2 ) * @epsilon.to_i( 2 )
     end
 end
 
